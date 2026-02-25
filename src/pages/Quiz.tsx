@@ -3,47 +3,56 @@ import { useNavigate } from "react-router-dom";
 import { quizQuestions, calculateLevel } from "@/data/quizData";
 import { levelImages } from "@/data/levelImages";
 import Header from "@/components/Header";
-import { CheckCircle2, Circle, Square } from "lucide-react";
 
 const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState<number[]>([]);
+  const [answerTypes, setAnswerTypes] = useState<("red" | "yellow" | "green")[]>([]);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const navigate = useNavigate();
 
   const question = quizQuestions[currentQuestion];
-  const progress = ((currentQuestion) / quizQuestions.length) * 100;
+  const progress = (currentQuestion / quizQuestions.length) * 100;
 
-  const levelContext = question.levelContext;
-  const levelImageKey = levelContext <= 1 ? "level0" : levelContext <= 3 ? "level3" : levelContext <= 6 ? "level5" : levelContext <= 8 ? "level8" : "level10";
+  const levelImageKey =
+    question.level <= 1 ? "level0" :
+    question.level <= 4 ? "level3" :
+    question.level <= 6 ? "level5" :
+    question.level <= 8 ? "level8" : "level10";
 
   const handleSelect = (answerIndex: number) => {
     setSelectedAnswer(answerIndex);
-    const score = question.answers[answerIndex].score;
+    const answer = question.answers[answerIndex];
+    const newAnswerTypes = [...answerTypes, answer.type];
 
     setTimeout(() => {
-      const newAnswers = [...answers, score];
+      // If they picked red, quiz ends — their level is this question's level
+      if (answer.type === "red") {
+        const level = calculateLevel(newAnswerTypes);
+        navigate(`/results/${level}`);
+        return;
+      }
+
       if (currentQuestion < quizQuestions.length - 1) {
-        setAnswers(newAnswers);
+        setAnswerTypes(newAnswerTypes);
         setCurrentQuestion(currentQuestion + 1);
         setSelectedAnswer(null);
       } else {
-        const level = calculateLevel(newAnswers);
-        navigate(`/results/${level}`, { state: { fromQuiz: true } });
+        const level = calculateLevel(newAnswerTypes);
+        navigate(`/results/${level}`);
       }
     }, 400);
   };
 
-  const answerTypeStyles = {
-    yes: "answer-yes",
-    maybe: "answer-maybe",
-    skip: "answer-skip",
+  const typeStyles = {
+    red: "border-l-4 border-l-quiz-red bg-quiz-red/5 hover:bg-quiz-red/10",
+    yellow: "border-l-4 border-l-quiz-yellow bg-quiz-yellow/5 hover:bg-quiz-yellow/10",
+    green: "border-l-4 border-l-quiz-green bg-quiz-green/5 hover:bg-quiz-green/10",
   };
 
-  const answerIcons = {
-    yes: <Square className="w-5 h-5 text-quiz-green flex-shrink-0" />,
-    maybe: <Circle className="w-5 h-5 text-quiz-yellow flex-shrink-0" />,
-    skip: <CheckCircle2 className="w-5 h-5 text-quiz-green flex-shrink-0" />,
+  const typeDots = {
+    red: "🔴",
+    yellow: "🟡",
+    green: "✅",
   };
 
   return (
@@ -60,18 +69,19 @@ const Quiz = () => {
 
       <main className="flex-1 flex flex-col items-center px-4 py-6 max-w-lg mx-auto w-full">
         {/* Level image */}
-        <div className="w-40 h-40 rounded-2xl overflow-hidden mb-3 shadow-md animate-scale-in">
+        <div className="w-36 h-36 rounded-2xl overflow-hidden mb-3 shadow-md animate-scale-in">
           <img
             src={levelImages[levelImageKey]}
-            alt={`Level ${levelContext}`}
+            alt={`Level ${question.level}`}
             className="w-full h-full object-cover"
           />
         </div>
 
         {/* Level badge */}
-        <div className="level-badge bg-quiz-orange/10 text-quiz-orange mb-4">
-          🔥 Level {levelContext}
+        <div className="level-badge bg-quiz-orange/10 text-quiz-orange mb-1">
+          Level {question.level}
         </div>
+        <p className="text-xs text-muted-foreground font-semibold mb-4">{question.title}</p>
 
         {/* Question card */}
         <div className="quiz-card w-full mb-6 animate-fade-in-up">
@@ -86,37 +96,27 @@ const Quiz = () => {
             <button
               key={index}
               onClick={() => handleSelect(index)}
-              className={`answer-option w-full text-left flex items-start gap-3 ${answerTypeStyles[answer.type]} ${
-                selectedAnswer === index ? "answer-option-selected scale-[0.98]" : ""
+              className={`quiz-card cursor-pointer transition-all duration-200 w-full text-left flex items-start gap-3 ${typeStyles[answer.type]} ${
+                selectedAnswer === index ? "ring-2 ring-primary scale-[0.98]" : ""
               }`}
             >
-              {answerIcons[answer.type]}
-              <span className="text-sm font-medium leading-relaxed" style={{
-                color: answer.type === "yes" ? "hsl(var(--quiz-green))" :
-                       answer.type === "maybe" ? "hsl(var(--quiz-orange))" :
-                       "hsl(var(--quiz-green))"
-              }}>
+              <span className="text-base flex-shrink-0 mt-0.5">{typeDots[answer.type]}</span>
+              <span className="text-sm font-medium leading-relaxed">
                 {answer.text}
               </span>
             </button>
           ))}
         </div>
 
-        {/* Navigation legend */}
+        {/* Legend */}
         <div className="flex items-center gap-4 mt-6 text-xs text-muted-foreground">
-          <span className="flex items-center gap-1">
-            <span className="w-2.5 h-2.5 rounded-full bg-quiz-red" /> Go back one
-          </span>
-          <span className="flex items-center gap-1">
-            <span className="w-2.5 h-2.5 rounded-full bg-quiz-yellow" /> You're here
-          </span>
-          <span className="flex items-center gap-1">
-            <span className="w-2.5 h-2.5 rounded-full bg-quiz-green" /> Next question
-          </span>
+          <span className="flex items-center gap-1">🔴 You stop here</span>
+          <span className="flex items-center gap-1">🟡 Your level</span>
+          <span className="flex items-center gap-1">✅ Next question</span>
         </div>
 
         {/* Question counter */}
-        <p className="text-xs text-muted-foreground mt-4">
+        <p className="text-xs text-muted-foreground mt-3">
           {currentQuestion + 1} of {quizQuestions.length}
         </p>
       </main>

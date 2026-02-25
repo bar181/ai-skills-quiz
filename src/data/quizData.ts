@@ -1,11 +1,11 @@
 export interface QuizQuestion {
   id: number;
-  levelContext: number;
+  level: number;
+  title: string;
   question: string;
   answers: {
     text: string;
-    type: "yes" | "maybe" | "skip";
-    score: number;
+    type: "red" | "yellow" | "green";
   }[];
 }
 
@@ -13,124 +13,142 @@ export interface LevelInfo {
   level: number;
   title: string;
   emoji: string;
-  tagline: string;
+  percent: string;
   description: string;
-  percentOfDevs: string;
-  percentile: string;
-  whatThisLooksLike: string[];
-  whosHere: string;
   imageKey: string;
 }
 
 export const quizQuestions: QuizQuestion[] = [
   {
     id: 1,
-    levelContext: 0,
-    question: "Be honest: when you sit down to code, is every single character in that file something you personally typed? No AI, no suggestions, no autocomplete?",
+    level: 0,
+    title: "The Skeptic",
+    question: "Hand on heart: have you ever opened ChatGPT, Claude, or any AI tool with genuine intent to use it for actual work — not just a quick curiosity click?",
     answers: [
-      { text: "Yes, and I write solid, production-ready code because of it", type: "yes", score: 0 },
-      { text: "Mostly, but I'll tab over to ChatGPT when I'm truly stuck", type: "maybe", score: 1 },
-      { text: "LOL. Next question.", type: "skip", score: 3 },
+      { text: "No. I'm good at my job without it.", type: "red" },
+      { text: "Once or twice — mostly to see what the fuss was about", type: "yellow" },
+      { text: "LOL. Next question.", type: "green" },
     ],
   },
   {
     id: 2,
-    levelContext: 1,
-    question: "Have you ever pasted code into ChatGPT or Claude and asked 'what does this do?' or 'can you fix this?'",
+    level: 1,
+    title: "The Tourist",
+    question: "You've tried AI at least once. But did anything actually change about how you work the next day?",
     answers: [
-      { text: "Yes, it's my go-to debugging tool now", type: "yes", score: 1 },
-      { text: "A few times, but I still prefer reading docs", type: "maybe", score: 0 },
-      { text: "I've moved way beyond copy-paste workflows", type: "skip", score: 3 },
+      { text: "Honestly? No. I went right back to normal.", type: "red" },
+      { text: "Not really — but I'm starting to pay more attention", type: "yellow" },
+      { text: "My workflow looks nothing like it did before I started using AI.", type: "green" },
     ],
   },
   {
     id: 3,
-    levelContext: 2,
-    question: "Do you use GitHub Copilot, Cursor, or similar AI coding assistants in your daily workflow?",
+    level: 2,
+    title: "The Copy/Paste Professional",
+    question: "When you need a first draft — email, summary, report intro — do you open AI and use what comes back?",
     answers: [
-      { text: "Yes, tab-complete is my best friend", type: "yes", score: 2 },
-      { text: "I've tried them but keep turning them off", type: "maybe", score: 1 },
-      { text: "I architect entire features with AI pair programming", type: "skip", score: 4 },
+      { text: "No — I write it myself, always have", type: "red" },
+      { text: "Yes — I ask, clean it up, and send it", type: "yellow" },
+      { text: "First drafts are the least interesting thing AI does for me now.", type: "green" },
     ],
   },
   {
     id: 4,
-    levelContext: 3,
-    question: "When starting a new feature, do you write a detailed prompt/spec before touching code?",
+    level: 3,
+    title: "The Prompt Tinkerer",
+    question: "Do you have a saved stash of prompts that actually work — in Notes, Notion, a doc somewhere — that you go back to?",
     answers: [
-      { text: "Always — prompt engineering is half the job now", type: "yes", score: 4 },
-      { text: "Sometimes, depends on complexity", type: "maybe", score: 2 },
-      { text: "I just start coding and use AI when needed", type: "skip", score: 1 },
+      { text: "No — I just type whatever and hope for the best", type: "red" },
+      { text: "Yes — I've figured out that context and specificity actually matter", type: "yellow" },
+      { text: "A prompts doc is entry-level. I have a full prompt asset library with placeholders.", type: "green" },
     ],
   },
   {
     id: 5,
-    levelContext: 4,
-    question: "Do you review and refactor AI-generated code, or do you trust it after basic testing?",
+    level: 4,
+    title: "The Conversationalist",
+    question: "Before you ask AI to build something for you, do you ask it to confirm what it thinks you're asking — before it starts?",
     answers: [
-      { text: "I review every line — AI makes subtle mistakes", type: "yes", score: 3 },
-      { text: "Quick scan, then ship if tests pass", type: "maybe", score: 5 },
-      { text: "My AI pipeline includes automated review", type: "skip", score: 7 },
+      { text: "No — I just give it the task and see what comes back", type: "red" },
+      { text: 'Yes — "Before you start, tell me what you think I\'m asking for" is part of my workflow', type: "yellow" },
+      { text: "Context confirmation is basic. I have AI running multi-step workflows from a single brief.", type: "green" },
     ],
   },
   {
     id: 6,
-    levelContext: 5,
-    question: "Have you built custom AI workflows — chaining prompts, using APIs, or creating agents for your dev process?",
+    level: 5,
+    title: "The Multi-Tool Professional",
+    question: "Do you use different AI tools for different jobs — and could you pick up a brand new one right now without reading a single tutorial?",
     answers: [
-      { text: "Yes, I have custom toolchains that multiply my output", type: "yes", score: 6 },
-      { text: "I've experimented but nothing in production yet", type: "maybe", score: 4 },
-      { text: "I mostly use off-the-shelf tools as-is", type: "skip", score: 2 },
+      { text: "Not yet — I mostly stick to one tool for everything", type: "red" },
+      { text: "Yes — I know which tool to reach for and I learn new ones by asking AI to explain them", type: "yellow" },
+      { text: "Tool fluency is table stakes. I'm building workflows that connect them.", type: "green" },
     ],
   },
   {
     id: 7,
-    levelContext: 6,
-    question: "Can you ship a complete feature — front-end, back-end, tests — primarily through AI-assisted generation?",
+    level: 6,
+    title: "The Workflow Designer",
+    question: "Have you actually mapped your weekly tasks and built AI into the repeatable ones — not occasionally, but as a designed system?",
     answers: [
-      { text: "Absolutely, and faster than writing it manually", type: "yes", score: 7 },
-      { text: "Parts of it, but I still hand-write critical sections", type: "maybe", score: 5 },
-      { text: "AI handles boilerplate, I handle architecture", type: "skip", score: 4 },
+      { text: "Not yet — I use AI when I think of it, not as a system", type: "red" },
+      { text: "Yes — I've decomposed my job into tasks and most of them have an AI layer now", type: "yellow" },
+      { text: "Personal workflows are done. I'm deploying them across entire teams.", type: "green" },
     ],
   },
   {
     id: 8,
-    levelContext: 7,
-    question: "Do you use AI to generate tests, documentation, and deployment configs — not just application code?",
+    level: 7,
+    title: "The Vendor Threat",
+    question: "If a vendor pitched you a $50,000 AI solution today, could you open Claude and have a working prototype built before they finished the deck?",
     answers: [
-      { text: "Yes, AI handles most of my SDLC beyond just coding", type: "yes", score: 8 },
-      { text: "For docs and tests sometimes, not deployment", type: "maybe", score: 6 },
-      { text: "I mainly use AI for writing application code", type: "skip", score: 3 },
+      { text: "Not yet — I'm a power user, not a builder", type: "red" },
+      { text: "Yes — I can prototype fast enough to kill most vendor pitches before they land", type: "yellow" },
+      { text: "I don't just kill pitches. I've built the internal tools that replaced them.", type: "green" },
     ],
   },
   {
     id: 9,
-    levelContext: 8,
-    question: "Have you built or deployed autonomous AI agents that complete multi-step tasks without human intervention?",
+    level: 8,
+    title: "The Persona Architect",
+    question: "Do your AI outputs actually sound like you — tailored to the specific audience, not generic AI copy that anyone could have generated?",
     answers: [
-      { text: "Yes, agents handle entire workflows for me", type: "yes", score: 9 },
-      { text: "I've experimented with agents but keep humans in the loop", type: "maybe", score: 7 },
-      { text: "Not yet, but I'm interested", type: "skip", score: 4 },
+      { text: "Not really — outputs are useful but they have that AI feel", type: "red" },
+      { text: "Yes — I define the audience persona deeply and the outputs are indistinguishable from expert human work", type: "yellow" },
+      { text: "One source. Six formats. Every audience gets exactly what they need.", type: "green" },
     ],
   },
   {
     id: 10,
-    levelContext: 9,
-    question: "Is your development process more about orchestrating AI systems than writing code yourself?",
+    level: 9,
+    title: "The Technical Non-Coder",
+    question: "Does your whole team use AI to write, run, and automate with code — dashboards, scripts, integrations — and not one of them has a CS degree?",
     answers: [
-      { text: "Yes — I'm more architect/orchestrator than coder now", type: "yes", score: 9 },
-      { text: "Getting there, but I still write significant code", type: "maybe", score: 7 },
-      { text: "I'm hands-on-keyboard most of the day", type: "skip", score: 3 },
+      { text: "Not yet — code still means filing a ticket and waiting for a developer", type: "red" },
+      { text: "Yes — my team automates their own processes in code without a developer in the loop", type: "yellow" },
+      { text: "Code is just another output format. My team ships tools your dev team would put in a sprint.", type: "green" },
     ],
   },
   {
     id: 11,
-    levelContext: 10,
-    question: "Could your team ship production software with zero human keystrokes — fully autonomous AI pipelines from spec to deploy?",
+    level: 10,
+    title: "The Org Redesigner",
+    question: "Have you deployed AI workflows that entire teams now run on — not your personal productivity, but restructured how others work and what headcount means?",
     answers: [
-      { text: "We're already doing this for some projects", type: "yes", score: 10 },
-      { text: "We're building toward this but not there yet", type: "maybe", score: 8 },
-      { text: "That sounds like science fiction", type: "skip", score: 2 },
+      { text: "Not yet — my AI impact stops at my own output", type: "red" },
+      { text: "Yes — I've redesigned team processes around AI-augmented outputs, not headcount", type: "yellow" },
+      { text: "I don't design workflows. I design the operating system the workflows run on.", type: "green" },
+    ],
+  },
+  {
+    id: 12,
+    level: 11,
+    title: "The AI-Native Operator",
+    question: "Does your organisation produce output that peers genuinely can't explain without seeing the workflows — and does your team stay small on purpose?",
+    answers: [
+      { text: "Not yet — humans are still meaningfully in every loop", type: "red" },
+      { text: "Yes. Tiny team. Outsized output. AI handles tasks. Humans handle responsibility.", type: "yellow" },
+      { text: "10 people. Unicorn output. AI isn't a tool — it's the org chart.", type: "green" },
     ],
   },
 ];
@@ -138,207 +156,121 @@ export const quizQuestions: QuizQuestion[] = [
 export const levels: LevelInfo[] = [
   {
     level: 0,
-    title: "Manual Coder",
-    emoji: "✍️",
-    tagline: "I write everything myself. AI is just Google.",
-    description: "You are a craftsperson. Every line of code is yours: written, considered, and owned. You take pride in understanding exactly what's in your codebase, and you're skeptical of tools that feel like black boxes. The risk? The world is moving fast around you, and developers using AI effectively are starting to ship 2-3x faster. Being a great coder is no longer enough on its own.",
-    percentOfDevs: "20%",
-    percentile: "Top 100%",
-    whatThisLooksLike: [
-      "I write all my code by hand, every character is mine",
-      "I might use AI like a search engine to look something up, but I don't let it write code",
-      "I don't use Copilot, Cursor, or any AI coding tool in my daily workflow",
-      "I'm skeptical AI can write code I'd actually trust in production",
-    ],
-    whosHere: "Still the majority of working developers globally, especially in enterprise and regulated industries. Shrinking fast.",
+    title: "The Skeptic",
+    emoji: "🤨",
+    percent: "~4%",
+    description: "You're not wrong that experience matters — but the professionals around you are compounding their output while you're holding the line. The good news: you only need one genuinely useful experience to move. One meeting summary. One email draft. That's the whole ask.",
     imageKey: "level0",
   },
   {
     level: 1,
-    title: "Copy-Paster",
-    emoji: "📋",
-    tagline: "ChatGPT is my Stack Overflow replacement.",
-    description: "You've discovered that AI can explain code, debug errors, and answer questions faster than searching forums. You copy-paste between your editor and ChatGPT. It's helpful, but you're not yet integrating AI into your actual development flow.",
-    percentOfDevs: "25%",
-    percentile: "Top 80%",
-    whatThisLooksLike: [
-      "I paste error messages into ChatGPT to understand what went wrong",
-      "I ask AI to explain code I don't understand",
-      "My workflow is: write code → get stuck → ask AI → paste answer back",
-      "I don't use any AI IDE extensions",
-    ],
-    whosHere: "Many developers who are AI-curious but haven't changed their tooling yet. Common entry point.",
+    title: "The Tourist",
+    emoji: "🧳",
+    percent: "~14%",
+    description: "You tried it, it underwhelmed, and you moved on. That's fair — a bad first prompt produces a bad first result. The professionals who stuck with it figured out that AI rewards context. One more attempt, with more specificity, looks very different.",
     imageKey: "level0",
   },
   {
     level: 2,
-    title: "Assisted Coder",
-    emoji: "🤖",
-    tagline: "Copilot is on, but I'm still driving.",
-    description: "You've installed an AI coding assistant and accept its suggestions when they're good. You're starting to code faster, but you still write most of the logic yourself. AI is a convenience, not a strategy.",
-    percentOfDevs: "20%",
-    percentile: "Top 55%",
-    whatThisLooksLike: [
-      "GitHub Copilot or similar is active in my editor",
-      "I accept maybe 30-50% of AI suggestions",
-      "I still write all the important logic myself",
-      "AI helps with boilerplate and repetitive patterns",
-    ],
-    whosHere: "Developers who've adopted tooling but haven't changed their mental model of development. Growing rapidly.",
+    title: "The Copy/Paste Professional",
+    emoji: "📋",
+    percent: "~30%",
+    description: "You're saving real time and that's genuinely useful. But your role, your thinking, and your workflow haven't changed — AI is just faster typing. A lawyer here is drafting clauses faster. A marketer is producing more first drafts. The output volume is up; the leverage isn't yet.",
     imageKey: "level3",
   },
   {
     level: 3,
-    title: "Prompt-First Developer",
-    emoji: "💬",
-    tagline: "I describe what I want, then refine what AI generates.",
-    description: "You've shifted from writing code to describing code. You start features with prompts, review what comes back, and iterate. Your prompt engineering skills are becoming as important as your coding skills.",
-    percentOfDevs: "12%",
-    percentile: "Top 35%",
-    whatThisLooksLike: [
-      "I write detailed prompts before writing code",
-      "I use AI chat to plan architecture and approaches",
-      "I spend more time reviewing AI output than writing from scratch",
-      "Prompt quality directly impacts my productivity",
-    ],
-    whosHere: "Early adopters and tech-forward teams. Disproportionately startup developers and indie hackers.",
+    title: "The Prompt Tinkerer",
+    emoji: "🔧",
+    percent: "~24%",
+    description: "You've figured out that how you ask matters. A recruiter here has AI pre-screening candidates. A finance analyst is generating faster reports. But you're still treating most sessions as one-shot interactions — and leaving most of the value on the table. The shift from prompting to conversation is the next unlock.",
     imageKey: "level3",
   },
   {
     level: 4,
-    title: "AI Pair Programmer",
-    emoji: "👥",
-    tagline: "AI and I are a team. I architect, it implements.",
-    description: "You and AI work together fluidly. You handle the thinking — architecture, edge cases, user experience — and AI handles the typing. You're significantly faster than you were before, and the code quality is still high because you review everything.",
-    percentOfDevs: "8%",
-    percentile: "Top 23%",
-    whatThisLooksLike: [
-      "I use AI for first drafts of most code I write",
-      "I have refined workflows for different types of tasks",
-      "I review and refactor AI output as a core part of my process",
-      "My productivity has noticeably increased since adopting AI tools",
-    ],
-    whosHere: "Power users of AI dev tools. Often senior developers who know what good code looks like and can guide AI effectively.",
-    imageKey: "level5",
+    title: "The Conversationalist",
+    emoji: "💬",
+    percent: "~14%",
+    description: "This is the first level where AI genuinely feels different. You treat it like a smart intern: capable, but needing direction. A finance analyst here builds models iteratively. An HR manager drafts sensitive communications through careful context-setting, not one-shot generation. You've stopped fighting the tool and started managing it.",
+    imageKey: "level3",
   },
   {
     level: 5,
-    title: "AI-Native Developer",
-    emoji: "⚡",
-    tagline: "AI is integrated into every part of my workflow.",
-    description: "AI isn't a tool you use — it's how you work. From planning to coding to testing to deployment, AI is woven through your entire process. You've built custom workflows and your output is 3-5x what it was before AI.",
-    percentOfDevs: "5%",
-    percentile: "Top 15%",
-    whatThisLooksLike: [
-      "Custom AI workflows for different development tasks",
-      "AI generates tests, docs, and deployment configs",
-      "I chain multiple AI tools together for complex tasks",
-      "My development speed would dramatically drop without AI",
-    ],
-    whosHere: "Forward-thinking developers who've restructured their entire workflow around AI. Often building their own tooling.",
+    title: "The Multi-Tool Professional",
+    emoji: "🛠️",
+    percent: "~8%",
+    description: "You know which tool to reach for and you're never surprised by a new one. A sales director here summarises all inbound before reading it. A consultant uses NotebookLM to turn client documents into briefings, podcasts, and decks before a meeting. The L4→L5 jump is where most people plateau — you cleared it.",
     imageKey: "level5",
   },
   {
     level: 6,
-    title: "Full-Stack AI Builder",
-    emoji: "🏗️",
-    tagline: "I ship complete features through AI generation.",
-    description: "You can go from idea to deployed feature primarily through AI-assisted generation. Front-end, back-end, database, tests — AI handles the implementation while you handle the vision and quality control.",
-    percentOfDevs: "4%",
-    percentile: "Top 10%",
-    whatThisLooksLike: [
-      "I can ship a complete feature mostly through AI generation",
-      "AI handles both front-end and back-end code for me",
-      "I focus on architecture decisions and edge cases",
-      "My velocity has increased 5x or more",
-    ],
-    whosHere: "Elite AI-powered developers. Often solo founders shipping products that used to require teams.",
+    title: "The Workflow Designer",
+    emoji: "⚙️",
+    percent: "~4%",
+    description: "You've done what most people skip: you mapped your job, identified the repeatable tasks, and built AI into them systematically. An operations manager here has automated weekly reporting. A recruiter has AI screen, summarise, and rank candidates before a human sees a single CV. You're saving hours, not minutes — and it compounds.",
     imageKey: "level5",
   },
   {
     level: 7,
-    title: "AI Workflow Architect",
-    emoji: "🔧",
-    tagline: "I build systems that build software.",
-    description: "You're not just using AI — you're building AI-powered development systems. Custom agents, automated pipelines, intelligent toolchains. You think in terms of systems that produce software, not individual coding sessions.",
-    percentOfDevs: "3%",
-    percentile: "Top 6%",
-    whatThisLooksLike: [
-      "I've built custom AI agents for development tasks",
-      "My CI/CD pipeline includes AI-powered steps",
-      "I think in terms of AI systems, not individual prompts",
-      "I can set up autonomous coding sessions that run without me",
-    ],
-    whosHere: "AI infrastructure builders, DevTools creators, and developers pushing the boundaries of what's possible.",
+    title: "The Vendor Threat",
+    emoji: "⚡",
+    percent: "~1%",
+    description: "When a vendor pitches their $50,000 AI solution, you can reverse-engineer the spec in real time and have a working prototype before they leave the room — no coding required. You've stopped buying AI wrappers and started building your own. Your colleagues still file requests. You ship prototypes in the meeting.",
     imageKey: "level8",
   },
   {
     level: 8,
-    title: "Autonomous Orchestrator",
-    emoji: "🎯",
-    tagline: "I define outcomes. AI figures out the implementation.",
-    description: "You've moved from implementation to orchestration. You define what needs to be built at a high level, and AI systems figure out how to build it. You spend your time on strategy, user experience, and quality — not code.",
-    percentOfDevs: "2%",
-    percentile: "Top 3%",
-    whatThisLooksLike: [
-      "AI agents complete multi-step tasks autonomously",
-      "I review pull requests generated entirely by AI",
-      "My role is more product/architecture than coding",
-      "I manage AI systems like I used to manage junior developers",
-    ],
-    whosHere: "Bleeding-edge developers and technical founders. Often building the tools that other levels are using.",
+    title: "The Persona Architect",
+    emoji: "🎭",
+    percent: "~0.5%",
+    description: "Your AI outputs don't sound like AI. You define audiences with depth — demographics, pain points, decision-making role, triggers — not just job titles. A comms director here produces one piece of content in six formats: board deck, team update, client email, social post, podcast brief, and executive summary — all from the same source. Every audience gets exactly what they need.",
     imageKey: "level8",
   },
   {
     level: 9,
-    title: "AI Systems Commander",
-    emoji: "🚀",
-    tagline: "I orchestrate fleets of AI agents that ship software.",
-    description: "You command multiple AI systems that work together to produce software. Your day looks more like a CTO's than a coder's — reviewing outputs, setting priorities, and ensuring quality across autonomous pipelines.",
-    percentOfDevs: "0.5%",
-    percentile: "Top 1%",
-    whatThisLooksLike: [
-      "Multiple AI agents work in parallel on different parts of a project",
-      "I rarely write code — I write specs and review outputs",
-      "My AI systems handle everything from ideation support to deployment",
-      "The bottleneck is my ability to define and prioritize, not implement",
-    ],
-    whosHere: "A tiny group of developers who've fully embraced autonomous development. Mostly in AI-native companies.",
+    title: "The Technical Non-Coder",
+    emoji: "💻",
+    percent: "~0.15%",
+    description: "Nobody on your team has a CS degree and nobody needs one. A marketing manager here builds her own dashboards. An ops lead automates his own integrations. A finance analyst ships internal tools that would have taken a dev sprint six months ago. Code is just another output format — and your team figured that out before your competitors did.",
     imageKey: "level10",
   },
   {
     level: 10,
-    title: "Dark Factory",
-    emoji: "🏭",
-    tagline: "Software ships with zero human keystrokes.",
-    description: "The ultimate level: fully autonomous software production. From specification to deployment, no human touches a keyboard. Like a 'lights-out' factory, the code factory runs itself. You define the what and the why. Everything else is automated.",
-    percentOfDevs: "<0.1%",
-    percentile: "Top 0.1%",
-    whatThisLooksLike: [
-      "Fully autonomous pipelines from spec to deploy",
-      "No human writes or reviews individual lines of code",
-      "AI systems self-test, self-correct, and self-deploy",
-      "The entire SDLC is automated end-to-end",
-    ],
-    whosHere: "Almost nobody — yet. This is the theoretical end state that the industry is moving toward. Some teams are achieving this for narrow use cases.",
+    title: "The Org Redesigner",
+    emoji: "🏛️",
+    percent: "~0.05%",
+    description: "You're not just productive — you're redesigning what work looks like. A COO here has restructured reporting lines around AI-augmented outputs. A marketing director runs a two-person team producing what used to require eight. You think in workforce-level ROI, not personal efficiency. Headcount decisions start with: \"What can't AI do here?\"",
+    imageKey: "level10",
+  },
+  {
+    level: 11,
+    title: "The AI-Native Operator",
+    emoji: "🚀",
+    percent: "<0.01%",
+    description: "10 people. Unicorn output. Every core workflow — support, content, reporting, legal review, financial modelling, sales prep, onboarding — runs with minimal human initiation. Your competitive advantage isn't a product or a process. It's the operating system you built. Peers can't explain your output-to-headcount ratio without seeing the workflows. And once they see them, they can't unsee them.",
     imageKey: "level10",
   },
 ];
 
-export function calculateLevel(answers: number[]): number {
-  const totalScore = answers.reduce((sum, score) => sum + score, 0);
-  const maxPossible = 10 * answers.length; // rough max
-  const normalized = totalScore / maxPossible;
+// Level = last 🟡 before first 🔴
+// answers: "red" | "yellow" | "green"
+// We go through in order. The user's level is the level of the last question where they did NOT pick red.
+// If they pick red on Q0 → level 0 (skeptic result)
+// If they pick yellow/green through Q5, then red on Q6 → level 5
+export function calculateLevel(answerTypes: ("red" | "yellow" | "green")[]): number {
+  // Find the first "red" answer - that's where they stop
+  const firstRedIndex = answerTypes.findIndex((a) => a === "red");
   
-  if (normalized <= 0.05) return 0;
-  if (normalized <= 0.1) return 1;
-  if (normalized <= 0.18) return 2;
-  if (normalized <= 0.25) return 3;
-  if (normalized <= 0.35) return 4;
-  if (normalized <= 0.45) return 5;
-  if (normalized <= 0.55) return 6;
-  if (normalized <= 0.65) return 7;
-  if (normalized <= 0.78) return 8;
-  if (normalized <= 0.9) return 9;
-  return 10;
+  if (firstRedIndex === -1) {
+    // Never picked red - they passed everything, level 11
+    return 11;
+  }
+  
+  if (firstRedIndex === 0) {
+    // Red on the very first question
+    return 0;
+  }
+  
+  // Level = the level of the question where they first picked red
+  return firstRedIndex;
 }

@@ -23,24 +23,29 @@ const Quiz = () => {
   const handleSelect = (answerIndex: number) => {
     setSelectedAnswer(answerIndex);
     const answer = question.answers[answerIndex];
-    const newAnswerTypes = [...answerTypes, answer.type];
 
     setTimeout(() => {
-      // If they picked red, quiz ends — their level is this question's level
+      // Red → end quiz, result = one level back (min 0)
       if (answer.type === "red") {
-        const level = calculateLevel(newAnswerTypes);
+        const level = Math.max(0, question.level - 1);
         navigate(`/results/${level}`);
         return;
       }
 
-      // Level 10 (index 10) is the last question — any answer ends the quiz
-      if (currentQuestion >= 10) {
-        const level = calculateLevel(newAnswerTypes);
-        navigate(`/results/${level}`);
+      // Yellow → end quiz, result = this level
+      if (answer.type === "yellow") {
+        navigate(`/results/${question.level}`);
         return;
       }
 
-      setAnswerTypes(newAnswerTypes);
+      // Green → continue to next question
+      // Any answer on Level 11 (last question) ends quiz
+      if (currentQuestion >= quizQuestions.length - 1) {
+        navigate(`/results/${question.level}`);
+        return;
+      }
+
+      setAnswerTypes([...answerTypes, answer.type]);
       setCurrentQuestion(currentQuestion + 1);
       setSelectedAnswer(null);
     }, 400);

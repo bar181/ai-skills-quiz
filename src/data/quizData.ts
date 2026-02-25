@@ -252,25 +252,19 @@ export const levels: LevelInfo[] = [
   },
 ];
 
-// Level = last 🟡 before first 🔴
-// answers: "red" | "yellow" | "green"
-// We go through in order. The user's level is the level of the last question where they did NOT pick red.
-// If they pick red on Q0 → level 0 (skeptic result)
-// If they pick yellow/green through Q5, then red on Q6 → level 5
-export function calculateLevel(answerTypes: ("red" | "yellow" | "green")[]): number {
-  // Find the first "red" answer - that's where they stop
-  const firstRedIndex = answerTypes.findIndex((a) => a === "red");
-  
-  if (firstRedIndex === -1) {
-    // Never picked red - they passed everything, level 11
-    return 11;
+// Quiz Scoring — 3 rules:
+// 🔴 End quiz. Result = one level back.
+// 🟡 End quiz. Result = this level.
+// ✅ Continue to next question.
+// Edge cases:
+// 🔴 on Level 0 → Level 0 (no level below)
+// Any answer on Level 11 → ends quiz
+// 🔴 on Level 11 → Level 10
+// 🟡 or ✅ on Level 11 → Level 11
+export function calculateLevel(questionLevel: number, answerType: "red" | "yellow" | "green"): number {
+  if (answerType === "red") {
+    return Math.max(0, questionLevel - 1);
   }
-  
-  if (firstRedIndex === 0) {
-    // Red on the very first question
-    return 0;
-  }
-  
-  // Level = the level of the question where they first picked red
-  return firstRedIndex;
+  // yellow or green on any level = this level (used when quiz ends)
+  return questionLevel;
 }

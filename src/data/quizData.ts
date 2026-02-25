@@ -99,23 +99,23 @@ export const quizQuestions: QuizQuestion[] = [
   {
     id: 8,
     level: 7,
-    title: "The Vendor Threat",
-    question: "If a vendor pitched you a $50,000 AI solution today, could you open Claude and have a working prototype built before they finished the deck?",
-    answers: [
-      { text: "Not yet — I'm a power user, not a builder", type: "red" },
-      { text: "Yes — I can prototype fast enough to kill most vendor pitches before they land", type: "yellow" },
-      { text: "I don't just kill pitches. I've built the internal tools that replaced them.", type: "green" },
-    ],
-  },
-  {
-    id: 9,
-    level: 8,
     title: "The Persona Architect",
     question: "Do your AI outputs actually sound like you — tailored to the specific audience, not generic AI copy that anyone could have generated?",
     answers: [
       { text: "Not really — outputs are useful but they have that AI feel", type: "red" },
       { text: "Yes — I define the audience persona deeply and the outputs are indistinguishable from expert human work", type: "yellow" },
       { text: "One source. Six formats. Every audience gets exactly what they need.", type: "green" },
+    ],
+  },
+  {
+    id: 9,
+    level: 8,
+    title: "The Vendor Threat",
+    question: "If a vendor pitched you a $50,000 AI solution today, could you open Claude and have a working prototype built before they finished the deck?",
+    answers: [
+      { text: "Not yet — I'm a power user, not a builder", type: "red" },
+      { text: "Yes — I can prototype fast enough to kill most vendor pitches before they land", type: "yellow" },
+      { text: "I don't just kill pitches. I've built the internal tools that replaced them.", type: "green" },
     ],
   },
   {
@@ -212,18 +212,18 @@ export const levels: LevelInfo[] = [
   },
   {
     level: 7,
-    title: "The Vendor Threat",
-    emoji: "⚡",
+    title: "The Persona Architect",
+    emoji: "🎭",
     percent: "~1%",
-    description: "When a vendor pitches their $50,000 AI solution, you can reverse-engineer the spec in real time and have a working prototype before they leave the room — no coding required. You've stopped buying AI wrappers and started building your own. Your colleagues still file requests. You ship prototypes in the meeting.",
+    description: "Your AI outputs don't sound like AI. You have saved personas with distinct personalities and tones. You define audiences with depth: demographics, pain points, decision-making role, triggers — not just job titles. Every output is indistinguishable from expert human work.",
     imageKey: "level8",
   },
   {
     level: 8,
-    title: "The Persona Architect",
-    emoji: "🎭",
+    title: "The Vendor Threat",
+    emoji: "⚡",
     percent: "~0.5%",
-    description: "Your AI outputs don't sound like AI. You define audiences with depth — demographics, pain points, decision-making role, triggers — not just job titles. A comms director here produces one piece of content in six formats: board deck, team update, client email, social post, podcast brief, and executive summary — all from the same source. Every audience gets exactly what they need.",
+    description: "When a vendor pitches their $50,000 AI solution, you can reverse-engineer the spec in real time, open Claude, and have a working prototype before they leave the room — no coding required. You've stopped buying AI wrappers and started building your own.",
     imageKey: "level8",
   },
   {

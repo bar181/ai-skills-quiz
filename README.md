@@ -8,6 +8,12 @@
 
 ---
 
+# Live and Free
+
+https://ai-developer-quiz.lovable.app/
+
+---
+
 ## What Is This?
 
 The **AI Professional Maturity Framework** is a 12-level self-assessment tool that maps how deeply artificial intelligence has changed — or hasn't changed — the way you actually work.

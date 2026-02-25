@@ -10,7 +10,7 @@
 
 # Live and Free
 
-https://ai-developer-quiz.lovable.app/
+[https://ai-developer-quiz.lovable.app/](https://ai-skills-quiz.lovable.app/)
 
 ---
 

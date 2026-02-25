@@ -1,13 +1,15 @@
 import { useParams, Link } from "react-router-dom";
 import { levels } from "@/data/quizData";
+import { levelDetails } from "@/data/levelDetails";
 import { levelImages } from "@/data/levelImages";
 import Header from "@/components/Header";
-import { ArrowLeft, ArrowRight, Linkedin } from "lucide-react";
+import { ArrowLeft, ArrowRight, Linkedin, CheckCircle2, User, Building2, KeyRound, Users } from "lucide-react";
 
 const LevelDetail = () => {
   const { level: levelParam } = useParams();
   const levelNum = parseInt(levelParam || "0", 10);
   const levelInfo = levels[levelNum] || levels[0];
+  const detail = levelDetails[levelNum] || levelDetails[0];
   const image = levelImages[levelInfo.imageKey];
 
   const prevLevel = levelNum > 0 ? levels[levelNum - 1] : null;
@@ -23,7 +25,7 @@ const LevelDetail = () => {
         </Link>
 
         {/* Header */}
-        <div className="flex items-center gap-4 mb-6 animate-fade-in-up">
+        <div className="flex items-center gap-4 mb-4 animate-fade-in-up">
           <div className="w-20 h-20 rounded-xl overflow-hidden shadow-md flex-shrink-0">
             <img src={image} alt={levelInfo.title} className="w-full h-full object-cover" />
           </div>
@@ -36,13 +38,69 @@ const LevelDetail = () => {
           </div>
         </div>
 
-        {/* Description */}
-        <div className="quiz-card mb-6 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-          <p className="text-sm leading-relaxed text-foreground/90">{levelInfo.description}</p>
+        {/* TL;DR */}
+        <div className="quiz-card mb-4 animate-fade-in-up bg-primary/5 border-primary/20" style={{ animationDelay: "0.05s" }}>
+          <p className="font-display font-semibold text-xs text-primary uppercase tracking-wider mb-1">TL;DR</p>
+          <p className="text-base font-display font-semibold text-foreground">{detail.tldr}</p>
         </div>
 
-        {/* Journey */}
-        <div className="quiz-card mb-6 animate-fade-in-up" style={{ animationDelay: "0.15s" }}>
+        {/* Description */}
+        <div className="quiz-card mb-4 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+          <p className="font-display font-semibold text-xs text-muted-foreground uppercase tracking-wider mb-2">Description</p>
+          <p className="text-sm leading-relaxed text-foreground/90">{detail.description}</p>
+        </div>
+
+        {/* The Person */}
+        <div className="quiz-card mb-4 animate-fade-in-up" style={{ animationDelay: "0.15s" }}>
+          <div className="flex items-center gap-2 mb-2">
+            <User className="w-4 h-4 text-primary" />
+            <p className="font-display font-semibold text-xs text-muted-foreground uppercase tracking-wider">The Person</p>
+          </div>
+          <p className="text-sm leading-relaxed text-foreground/90">{detail.thePerson}</p>
+        </div>
+
+        {/* The Company */}
+        <div className="quiz-card mb-4 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+          <div className="flex items-center gap-2 mb-2">
+            <Building2 className="w-4 h-4 text-primary" />
+            <p className="font-display font-semibold text-xs text-muted-foreground uppercase tracking-wider">The Company</p>
+          </div>
+          <p className="text-sm leading-relaxed text-foreground/90">{detail.theCompany}</p>
+        </div>
+
+        {/* The Unlock */}
+        <div className="quiz-card mb-4 animate-fade-in-up bg-accent/30" style={{ animationDelay: "0.25s" }}>
+          <div className="flex items-center gap-2 mb-2">
+            <KeyRound className="w-4 h-4 text-primary" />
+            <p className="font-display font-semibold text-xs text-muted-foreground uppercase tracking-wider">The Unlock</p>
+          </div>
+          <p className="text-sm leading-relaxed text-foreground/90">{detail.theUnlock}</p>
+        </div>
+
+        {/* Checklist */}
+        <div className="quiz-card mb-4 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
+          <p className="font-display font-semibold text-xs text-muted-foreground uppercase tracking-wider mb-3">Checklist</p>
+          <ul className="space-y-2.5">
+            {detail.checklist.map((item, i) => (
+              <li key={i} className="flex items-start gap-2.5">
+                <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                <span className="text-sm text-foreground/90 leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Who's Here */}
+        <div className="quiz-card mb-6 animate-fade-in-up" style={{ animationDelay: "0.35s" }}>
+          <div className="flex items-center gap-2 mb-2">
+            <Users className="w-4 h-4 text-primary" />
+            <p className="font-display font-semibold text-xs text-muted-foreground uppercase tracking-wider">Who's Here</p>
+          </div>
+          <p className="text-sm leading-relaxed text-foreground/90 font-medium">{detail.whosHere}</p>
+        </div>
+
+        {/* Journey Map */}
+        <div className="quiz-card mb-6 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
           <p className="font-display font-semibold text-xs text-muted-foreground mb-3 uppercase tracking-wider">
             Journey Map
           </p>
@@ -67,7 +125,7 @@ const LevelDetail = () => {
         </div>
 
         {/* All levels grid */}
-        <div className="mb-6 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+        <div className="mb-6 animate-fade-in-up" style={{ animationDelay: "0.45s" }}>
           <p className="font-display font-semibold text-sm mb-3">All Levels</p>
           <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
             {levels.map((l) => (
@@ -87,7 +145,7 @@ const LevelDetail = () => {
         </div>
 
         {/* Navigation */}
-        <div className="flex justify-between items-center pt-4 border-t border-border animate-fade-in-up" style={{ animationDelay: "0.25s" }}>
+        <div className="flex justify-between items-center pt-4 border-t border-border animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
           <p className="text-xs text-muted-foreground">{levelNum + 1} of {levels.length}</p>
           <div className="flex gap-2">
             {prevLevel && (

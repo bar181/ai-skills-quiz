@@ -11,7 +11,8 @@ const Quiz = () => {
   const navigate = useNavigate();
 
   const question = quizQuestions[currentQuestion];
-  const progress = (currentQuestion / quizQuestions.length) * 100;
+  const totalQuestions = 11; // Questions 0-10
+  const progress = ((currentQuestion) / totalQuestions) * 100;
 
   const levelImageKey =
     question.level <= 1 ? "level0" :
@@ -32,14 +33,16 @@ const Quiz = () => {
         return;
       }
 
-      if (currentQuestion < quizQuestions.length - 1) {
-        setAnswerTypes(newAnswerTypes);
-        setCurrentQuestion(currentQuestion + 1);
-        setSelectedAnswer(null);
-      } else {
+      // Level 10 (index 10) is the last question — any answer ends the quiz
+      if (currentQuestion >= 10) {
         const level = calculateLevel(newAnswerTypes);
         navigate(`/results/${level}`);
+        return;
       }
+
+      setAnswerTypes(newAnswerTypes);
+      setCurrentQuestion(currentQuestion + 1);
+      setSelectedAnswer(null);
     }, 400);
   };
 
@@ -117,7 +120,7 @@ const Quiz = () => {
 
         {/* Question counter */}
         <p className="text-xs text-muted-foreground mt-3">
-          {currentQuestion + 1} of {quizQuestions.length}
+          {currentQuestion + 1} of {totalQuestions}
         </p>
       </main>
     </div>

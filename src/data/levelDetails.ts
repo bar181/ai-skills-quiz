@@ -32,222 +32,222 @@ export const levelDetails: LevelDetail[] = [
   },
   {
     level: 1,
-    tldr: "Tried it once. Wasn't impressed.",
+    tldr: "I tried it. It was fine. Then I forgot about it.",
     description:
-      "Placeholder: You gave AI a shot, got a mediocre result, and moved on. The first attempt rarely showcases what's possible — but you haven't had a reason to try again yet.",
+      "You've used the free version of ChatGPT once or twice — mostly curiosity, or a colleague showed you — then went back to working normally when the answer missed or the credits ran out. You tell people \"I've tried it\" without being able to say what changed. The tool didn't fail you — your first prompt was just too vague to produce anything worth keeping.",
     thePerson:
-      "Placeholder: Curious but unconvinced. Tried a generic prompt, got a generic answer, and concluded it wasn't worth the effort. Needs a use case that hits close to home.",
+      "Curious but not yet committed. Probably aware they're behind the curve and mildly uncomfortable about it. Not resistant — just waiting for a reason that feels relevant to their actual job. One good experience, with the right context, tips this person to Level 2 immediately. The gap between Level 1 and Level 2 is the smallest in the framework — and the most important.",
     theCompany:
-      "Placeholder: May have AI tools available but no structured onboarding or use-case guidance. Adoption is individual, not institutional.",
+      "Probably running Microsoft 365 Copilot or Google Workspace AI features that nobody is using. May have sent a company-wide email about AI that generated zero follow-up. There's no internal champion, no training, and no shared examples of what good looks like. AI exists in the budget. It doesn't exist in the workflow.",
     theUnlock:
-      "Placeholder: A second attempt with a specific, personal task — something that shows AI rewards context and effort, not just a question.",
+      "A specific, relevant task — not a general exploration. \"Summarise this meeting I just had\" or \"draft a reply to this difficult email\" lands differently than \"try ChatGPT.\" Specificity is the bridge from Tourist to user.",
     checklist: [
-      "Opened an AI tool at least once with genuine curiosity",
-      "Got an underwhelming result and didn't return",
-      "Hasn't changed any part of their daily workflow",
-      "Aware that colleagues are using AI more regularly",
-      "Open to trying again if shown a compelling use case",
+      "Has opened ChatGPT or similar at least once with intent to use it for work",
+      "Used the free tier until hitting the daily limit, then stopped entirely",
+      "No workflow integration — purely ad hoc, mostly for personal curiosity",
+      "Gets frustrated when AI \"makes things up\" and uses it as evidence it doesn't work",
+      "Tells colleagues \"I've tried it\" without being able to say what actually changed",
     ],
-    whosHere: "~14% of professionals. The 'I tried it' crowd.",
+    whosHere: "~14% of professionals. One bad first impression is keeping them here.",
   },
   {
     level: 2,
-    tldr: "AI writes my first drafts.",
+    tldr: "AI writes my first drafts. I still do the thinking.",
     description:
-      "Placeholder: You're saving real time by letting AI handle first drafts — emails, summaries, reports. But the way you work hasn't fundamentally changed. AI is faster typing, not different thinking.",
+      "You use AI to write things faster — emails, summaries, first drafts, report intros. You copy the output, clean it up, and send it. AI is basically autocomplete for everything you used to type from scratch. You're saving 15–30 minutes a day, you have a paid account, and you feel like you're using AI. Your role, your thinking, and your workflow haven't changed. You're faster at the same job.",
     thePerson:
-      "Placeholder: Pragmatic and busy. Found that AI can save 15 minutes on a task and uses it for that. Hasn't explored beyond the obvious use cases yet.",
+      "A practical, results-oriented professional who adopted AI because it saved time on something annoying. Editing AI output feels natural — they're good at it. But they haven't yet experienced AI as a thinking partner, only as a writing tool. The shift to Level 3 happens when they realise the quality of what comes back is directly tied to how well they set up the request.",
     theCompany:
-      "Placeholder: AI is tolerated or lightly encouraged. No formal strategy. Individual contributors are experimenting; leadership hasn't set direction.",
+      "Has a paid ChatGPT or Claude account — possibly because someone in leadership mandated it. No shared prompts, no workflows, no standards. Individual adoption is scattered and invisible. Some people use it daily; others have forgotten they have access. Nobody is measuring the impact. The tool is in the stack; the practice isn't in the culture.",
     theUnlock:
-      "Placeholder: Discovering that how you prompt matters — that specificity and context transform output quality from 'meh' to 'actually useful.'",
+      "Noticing that one well-set-up prompt produced something dramatically better than usual — and asking why. That moment of \"what did I do differently?\" is the door to Level 3.",
     checklist: [
-      "Uses AI for first drafts of emails, summaries, or reports",
-      "Copies and pastes output with light editing",
-      "Hasn't developed a consistent prompting approach",
-      "Workflow is the same — just faster on certain tasks",
-      "Hasn't explored tools beyond ChatGPT or one main tool",
+      "Uses AI for drafting, summarising, and basic formatting tasks daily",
+      "Always edits output before using it — doesn't fully trust it yet",
+      "Saving roughly 15–30 minutes a day but role and workflow are unchanged",
+      "Pastes output directly from a browser chat window to wherever it's going",
+      "Has a paid account but hasn't explored beyond basic drafting",
     ],
-    whosHere: "~30% of professionals. The fat middle of the bell curve.",
+    whosHere: "~30% of professionals — the fat middle of the bell curve right now.",
   },
   {
     level: 3,
-    tldr: "I've learned that prompts matter.",
+    tldr: "I have a prompts doc. Context is everything.",
     description:
-      "Placeholder: You've figured out that context and specificity change everything. You have saved prompts. You iterate. But most interactions are still one-shot — you haven't unlocked the conversation yet.",
+      "You've figured out that how you ask matters. You give context, specify the audience, and iterate — not because someone taught you a framework, but because you kept trying until things got better. You have a notes document somewhere full of prompts that worked. A lawyer at this level drafts contract clauses faster. A marketer produces campaign briefs in minutes. Both still copy/paste and rewrite heavily — but the raw material is noticeably better when the setup is right.",
     thePerson:
-      "Placeholder: Detail-oriented and process-minded. Enjoys optimizing and has started treating prompts as a skill, not a search query.",
+      "Naturally curious and slightly competitive — noticed colleagues getting better results and started experimenting to close the gap. Has an intuitive feel for what makes a prompt work but applies it inconsistently. Still treats most sessions as one-shot interactions rather than conversations. The next unlock is realising AI performs best when you manage it like a new hire: confirm understanding before execution, not after.",
     theCompany:
-      "Placeholder: Some teams are sharing prompts informally. No centralized prompt library or AI playbook. Knowledge is siloed.",
+      "Starting to see pockets of AI-fluent individuals who share prompts informally — Slack messages, email threads, corridor conversations. A few people have become the go-to \"AI person\" in their team. Leadership is watching but hasn't invested in structured training. The competitive pressure to formalise is building.",
     theUnlock:
-      "Placeholder: Moving from one-shot prompting to multi-turn conversation — treating AI like a collaborator, not a search engine.",
+      "Asking AI to confirm what it thinks you're asking before it starts — and watching the output quality jump. That single habit is the difference between prompting and managing.",
     checklist: [
-      "Has saved prompts in Notes, Notion, or a shared doc",
-      "Understands that context and specificity improve output",
-      "Iterates on prompts to get better results",
-      "Still treats most sessions as one-shot interactions",
-      "Hasn't built AI into a repeatable workflow yet",
+      "Has a saved list of prompts in Notes, Notion, or a Word doc that they return to",
+      "Knows that adding context improves results and applies it deliberately",
+      "Uses role or audience framing in prompts to sharpen outputs",
+      "Still treats most sessions as one-shot interactions rather than conversations",
+      "Starting to understand that vague inputs produce garbage outputs",
     ],
-    whosHere: "~24% of professionals. The prompt-curious middle.",
+    whosHere: "~24% of professionals. Aware that skill matters — not yet systematic about it.",
   },
   {
     level: 4,
-    tldr: "I manage AI like a smart intern.",
+    tldr: "I talk to AI like a smart intern, not a vending machine.",
     description:
-      "Placeholder: You treat AI as a capable but directionless collaborator. You confirm understanding before execution. You iterate in conversation, not in re-prompts. This is where AI starts to feel genuinely different.",
+      "You've stopped trying to write the perfect prompt and started having a real dialogue. You know that \"write my entire business plan\" in one shot produces garbage — unless you've confirmed context, defined the audience, and built iteratively. You always ask AI to confirm what it thinks you're asking before it starts. A finance analyst at this level builds financial models iteratively. An HR manager drafts sensitive communications through careful context-setting, not one-shot generation. This is the first level where AI genuinely feels different.",
     thePerson:
-      "Placeholder: A strong communicator who's realized that managing AI is a lot like managing people — clear briefs, context setting, and iterative feedback.",
+      "Has made the mental shift from \"tool user\" to \"AI manager.\" Treats AI like a smart intern on day one: capable, but needing direction, confirmation, and oversight. Understands that the quality of the output is a direct reflection of the quality of the brief. Has a paid account, uses it daily, has turned off training data sharing in settings, and knows never to paste client data or PII into consumer AI tools.",
     theCompany:
-      "Placeholder: Pockets of sophisticated usage. Some teams have informal best practices. No org-wide AI strategy, but the early adopters are visible.",
+      "Has at least one internal AI champion running informal lunch-and-learns or sharing examples. Some teams are visibly more productive than others and people are starting to notice. Leadership is asking \"what are we actually doing with AI?\" but hasn't yet built a structured answer. The gap between the AI-fluent and AI-passive employees is becoming measurable — and awkward.",
     theUnlock:
-      "Placeholder: Becoming tool-agnostic — learning to pick the right AI tool for the right job, and picking up new ones without tutorials.",
+      "Building a personal prompt asset library — moving from saving individual prompts to creating reusable templates with placeholders. The shift from \"prompts that worked\" to \"systems that always work\" is the bridge to Level 5.",
     checklist: [
-      "Asks AI to confirm understanding before starting",
-      "Uses multi-turn conversations, not single prompts",
-      "Provides context about audience, format, and constraints",
-      "Has noticed a meaningful productivity improvement",
-      "Starting to explore multiple AI tools",
+      "Always confirms AI understands before asking it to execute: \"Before you start, tell me what you think I'm asking for\"",
+      "Iterates through conversation rather than re-prompting from scratch when results miss",
+      "Has a paid account, uses it daily, has turned off training data sharing in settings",
+      "Never pastes client data, PII, or confidential information into consumer AI tools",
+      "Treats AI like a smart intern: capable, but requiring direction and oversight",
     ],
-    whosHere: "~14% of professionals. The conversation-fluent.",
+    whosHere: "~14% of professionals. The first level where AI genuinely feels different.",
   },
   {
     level: 5,
-    tldr: "Right tool, right job, no tutorial needed.",
+    tldr: "Right AI, right job. I never read anything without summarising it first.",
     description:
-      "Placeholder: You're fluent across tools — ChatGPT, Claude, NotebookLM, Perplexity, and whatever launched last week. You learn new tools by asking AI to explain them. Tool fluency is table stakes.",
+      "You use 5+ AI tools and know which one to reach for. You understand the practical difference between Claude, ChatGPT, and Gemini. You use AI for image generation, research, summarisation, and communication — and you can pick up any new tool without a tutorial by screenshotting the interface and asking AI how it works. A sales director at this level summarises all inbound before reading it. A consultant uses NotebookLM to turn client documents into briefings, podcasts, and decks before a meeting. The L4→L5 jump is where most professionals plateau.",
     thePerson:
-      "Placeholder: Confident experimenter. Comfortable being a beginner in a new tool because they know the learning curve is AI-assisted and therefore near-zero.",
+      "Where L4 professionals use AI as an assistant, L5 professionals use it as infrastructure — something woven into how work moves, not something they consciously invoke. The defining shift isn't the number of tools; it's the way they think about information. Nothing arrives unfiltered. Every document, briefing, or brief is processed before it's read. Every output is considered in terms of format — who gets what version, in what medium, at what length. They don't ask \"can AI help with this?\" anymore. They ask \"what's the fastest path from raw material to finished output?\" — and AI is always in the answer.",
     theCompany:
-      "Placeholder: Multiple AI tools in use across teams. Some budget allocated. Power users are emerging as informal leaders and trainers.",
+      "Walk into this team's workspace and something looks slightly off — in a good way. There's a slide deck that was produced in 20 minutes that shouldn't exist yet. A competitive briefing that arrived before the meeting started. A client summary that came from a 90-page report nobody read in full. The tools aren't visible but the outputs are. Individual AI fluency is creating team-level output advantages that colleagues are starting to notice and ask about. Leadership can see the productivity delta but can't yet systematise it — that comes at Level 6.",
     theUnlock:
-      "Placeholder: Moving from tool usage to workflow design — systematically mapping your job and building AI into the repeatable parts.",
+      "Mapping your own job explicitly — writing down every recurring task and asking which ones AI could own, assist, or inform. That act of decomposition is the foundation of Level 6 and can't be skipped.",
     checklist: [
-      "Uses 3+ AI tools for different purposes",
-      "Can pick up a new AI tool without reading documentation",
-      "Learns new tools by asking AI to explain them",
-      "Has a clear sense of which tool is best for which task",
-      "Starting to think about systematic workflow integration",
+      "Uses 5+ AI tools regularly and knows which one to reach for by task",
+      "Never reads a full document without asking AI to summarise and flag what needs attention",
+      "Learns any new AI tool by screenshotting the interface and asking AI to explain it",
+      "Uses AI as a personal tutor for any new skill, tool, or domain they need fast",
+      "Thinks in formats — same content delivered differently to different audiences",
     ],
-    whosHere: "~8% of professionals. The tool-fluent minority.",
+    whosHere: "~8% of professionals. The L4→L5 jump is where most people plateau.",
   },
   {
     level: 6,
-    tldr: "My job is mapped and AI is built in.",
+    tldr: "I've decomposed my job into tasks. Most of them have an AI layer now.",
     description:
-      "Placeholder: You've done what most people skip — mapped your weekly tasks, identified the repeatable ones, and built AI into them systematically. You're saving hours, not minutes.",
+      "You've mapped your week into tasks and identified that almost nothing you do on a computer is beyond AI's reach. You've built personal prompt templates, embedded AI into repeatable processes, and you're saving hours — not minutes. Every task is a micro-ROI opportunity and you've built systems that compound. An operations manager at this level has automated weekly reporting. A recruiter has AI screen, summarise, and rank candidates before a human sees a single CV.",
     thePerson:
-      "Placeholder: Systems thinker. Sees their job as a set of processes, not a set of tasks. Has the discipline to document and optimize, not just use.",
+      "Systems thinker with a strong sense of where their time goes. Has done the unglamorous work of mapping their own job before automating it. Built a prompt asset library with placeholders: [AUDIENCE], [TONE], [CONTEXT], [TASK]. Uses rubric-based evaluation to stress-test outputs — not just \"does this look good?\" but scored criteria with demanded improvements. The gap to Level 7 is shifting from personal workflows to mastering how outputs land with different audiences.",
     theCompany:
-      "Placeholder: AI is becoming part of operations, not just individual productivity. Some workflows are documented and shared. Early signs of institutional capability.",
+      "Has a designated AI workflow owner in at least one department — not a coder, but someone who specs, prototypes, and iterates processes. AI is showing up in team retrospectives, not just individual productivity. ROI conversations are starting. Some workflows have been formally documented and shared. Leadership is beginning to ask whether certain roles need to be redesigned rather than just augmented.",
     theUnlock:
-      "Placeholder: Moving from personal workflows to prototyping — being able to build tools and solutions without waiting for a developer.",
+      "Realising that efficiency without communication mastery has a ceiling — you can produce more, but if it doesn't land with the right audience in the right format, the output is wasted. Persona-first thinking is the bridge to Level 7.",
     checklist: [
-      "Has mapped weekly tasks and identified repeatable ones",
-      "AI is built into workflows as a system, not ad hoc",
-      "Saves hours per week, not just minutes",
-      "Has documented workflows others could follow",
-      "Starting to see opportunities to build, not just use",
+      "Has done explicit task decomposition — knows which tasks are AI-led, hybrid, or human-only",
+      "Built a personal prompt asset library with placeholders for reuse",
+      "Connects drives, email, and calendar to AI tools to reduce context-switching",
+      "Uses rubric-based evaluation to score and improve AI outputs systematically",
+      "Saving hours per week — not minutes — through compounding micro-task automation",
     ],
-    whosHere: "~4% of professionals. The workflow architects.",
+    whosHere: "~4% of professionals. Requires deliberate workflow mapping — not just tool fluency.",
   },
   {
     level: 7,
-    tldr: "I build what vendors try to sell me.",
+    tldr: "My AI outputs don't sound like AI. Every audience gets exactly what they need.",
     description:
-      "Placeholder: When a vendor pitches their $50K AI solution, you can reverse-engineer the spec in real time. You prototype faster than they present. You've stopped buying AI wrappers and started building your own.",
+      "Your AI outputs don't sound like AI. You have saved personas with distinct personalities and tones — a blunt devil's advocate, a polished executive voice, a plain-English explainer. You define audiences with depth: demographics, pain points, decision-making role, triggers — not just job titles. A comms director at this level produces one piece of content in six formats — board deck, team update, client email, social post, podcast brief, executive summary — all from the same source. Every output is indistinguishable from expert human work.",
     thePerson:
-      "Placeholder: Builder mindset. Sees a pitch deck and thinks 'I could build that this afternoon.' Comfortable with rapid prototyping and iteration.",
+      "Deep communicator with a natural instinct for audience. Has invested time in understanding how AI responds to persona framing and uses it to eliminate the generic AI voice entirely. Uses AI as a focus group — simulating stakeholder reactions to stress-test ideas before they go public. Applies diverse feedback loops: asks AI to respond as a skeptical CFO, a time-poor operations lead, a first-time buyer. Output quality is the competitive advantage.",
     theCompany:
-      "Placeholder: Internal tools are being built by non-developers. The line between 'user' and 'builder' is blurring. Vendor relationships are shifting.",
+      "Likely in a communication-heavy industry — marketing, PR, consulting, financial services, legal. Content quality is a brand differentiator and the organisation is starting to notice that this person's AI outputs land differently. May be developing internal AI content standards or tone-of-voice guidelines. The question of \"what does good AI output look like for us?\" is being asked — this person is the answer.",
     theUnlock:
-      "Placeholder: Making AI outputs indistinguishable from expert human work — defining audiences with depth, not demographics.",
+      "Moving from communication craft to technical prototyping — the ability to build something functional, not just write something polished. The Vendor Threat mindset starts with asking \"could I build this myself?\" instead of \"could I write this better?\"",
     checklist: [
-      "Can prototype a working solution faster than a vendor can pitch one",
-      "Has built internal tools that replaced vendor solutions",
-      "Comfortable reverse-engineering product specs",
-      "Thinks in terms of build vs buy with a bias toward build",
-      "Colleagues come to you when they need something built",
+      "Has multiple saved AI personas for different communication contexts",
+      "Defines audience with depth: demographics, pain points, triggers, decision-making role",
+      "Uses AI as a focus group — simulates multiple stakeholder perspectives to stress-test ideas",
+      "Produces one piece of content across 5+ formats from a single source",
+      "Every output goes through rubric evaluation before it leaves the room",
     ],
-    whosHere: "~1% of professionals. The vendor nightmares.",
+    whosHere: "~1% of professionals. Deep persona discipline and multi-format fluency required.",
   },
   {
     level: 8,
-    tldr: "One source, six formats, every audience served.",
+    tldr: "I can build what you're selling before the meeting ends.",
     description:
-      "Placeholder: Your AI outputs don't sound like AI. You define audiences with depth — demographics, pain points, triggers — not just job titles. One piece of content becomes six formats for six audiences.",
+      "When a vendor pitches their $50,000 AI solution, you can reverse-engineer the spec in real time, open Claude, and have a working prototype before they leave the room — no coding required. You've stopped buying AI wrappers and started building your own. You can spot an AI wrapper from across a Zoom call and explain what's actually happening under the hood. You review legal documents with AI first — understand clause structure and risk flags — then ask a lawyer only the questions that require human judgment.",
     thePerson:
-      "Placeholder: Communication strategist. Thinks in audiences, not outputs. Understands that the same information needs different packaging for different people.",
+      "High prototyping instinct combined with deep prompting skill. Builds first, evaluates second. Has developed a sharp eye for distinguishing genuine AI capability from expensive UI wrappers. The internal \"have you tried doing this yourself first?\" voice is always on. Comfortable moving between business problem and functional prototype without a technical intermediary. Has the ability to prototype a vendor solution in a meeting — and has done it, or is fully confident they could.",
     theCompany:
-      "Placeholder: Content operations are AI-augmented at scale. Small teams produce what used to require departments. Quality is high and consistent.",
+      "Fast-moving, often founder-led or with a lean senior team. Has a culture of building before buying. Vendor relationships are evaluated on what they provide beyond the AI itself: data, integrations, support, compliance. The bar for \"we need to buy this\" is high because the bar for \"we can build this\" is low.",
     theUnlock:
-      "Placeholder: Empowering your team to code, automate, and build — without a CS degree in sight.",
+      "Recognising that prototyping is a personal skill but code is a team capability. Moving from \"I can build this\" to \"my whole team can build their own tools\" — without anyone needing a CS degree — is the bridge to Level 9.",
     checklist: [
-      "AI outputs are indistinguishable from expert human work",
-      "Defines audience personas with depth — pain points, triggers, context",
-      "Produces multiple formats from a single source",
-      "Has eliminated 'that AI feel' from all outputs",
-      "Audiences receive exactly what they need, tailored precisely",
+      "Can prototype a working solution in Claude or Lovable before a vendor meeting ends",
+      "Can identify an AI wrapper on sight and explain what's actually happening underneath",
+      "Has the ability to prototype a vendor solution in a meeting — and has done it or is confident they could",
+      "Reviews legal, financial, or strategic documents with AI before involving specialists",
+      "Never adopts a tool without prototyping first to validate the need",
     ],
-    whosHere: "~0.5% of professionals. The persona architects.",
+    whosHere: "~0.5% of professionals. High prototyping instinct and deep prompting skill required.",
   },
   {
     level: 9,
-    tldr: "My team codes without a CS degree.",
+    tldr: "My team ships code. None of them have CS degrees.",
     description:
-      "Placeholder: Nobody on your team has a CS degree and nobody needs one. Marketing builds dashboards. Ops automates integrations. Finance ships internal tools. Code is just another output format.",
+      "Every member of your team uses AI to write, run, and automate with code — dashboards, scripts, integrations, internal tools — without filing a single ticket to a developer. A marketing manager builds her own analytics dashboards. An ops lead automates his own integrations. A finance analyst ships internal tools that would have taken a dev sprint. Code is just another output format, and your team figured that out before your competitors did. They didn't need CS degrees. They needed Claude.",
     thePerson:
-      "Placeholder: Technical enabler. Has democratized code across their team. Sees coding as a literacy, not a specialization — and AI makes it accessible.",
+      "Has personally crossed the threshold from \"AI user\" to \"AI builder\" and brought their team with them. Understands AI's technical capabilities and limits well enough to know when a vendor claim is technically impossible — and says so in the meeting. Has invested in making Claude Code (or equivalent) part of every team member's toolkit, not as a developer tool but as a professional capability. Thinks of code the same way they think of a slide deck: a format, not a specialism.",
     theCompany:
-      "Placeholder: Non-technical teams are shipping technical solutions. Development backlogs are shrinking because users build their own tools. IT is shifting from builder to platform.",
+      "Small to mid-size, high ambition, low bureaucracy. The development backlog has shrunk because the teams generating the requests have started solving them. The gap between \"I need this built\" and \"it's built\" has collapsed from weeks to hours. IT doesn't gate-keep AI tool access — or has been bypassed by a team that moved faster. Technical debt is understood as a team-level concept, not just an engineering one.",
     theUnlock:
-      "Placeholder: Moving from personal and team productivity to organizational redesign — rethinking headcount, structure, and what work means.",
+      "Shifting from team-level capability to organisation-level redesign — asking not \"what can my team build?\" but \"what does this mean for headcount, structure, and how we measure output?\" That question is the door to Level 10.",
     checklist: [
-      "Team members write and run code without developer support",
-      "Internal tools are built by the people who use them",
-      "Dashboards, scripts, and automations are self-served",
-      "No CS degree on the team — and no need for one",
-      "Code is treated as another output format, like a slide deck",
+      "Every team member uses AI to write and run code — dashboards, automations, integrations",
+      "No IT ticket required — team members solve their own technical needs directly",
+      "Has reviewed vendor source code or technical documentation with AI before a meeting",
+      "Can identify when a vendor capability claim is technically impossible",
+      "Team ships internal tools that would previously have required a development sprint",
     ],
-    whosHere: "~0.15% of professionals. The technical non-coders.",
+    whosHere: "~0.15% of professionals. Requires team-wide adoption and a culture that treats code as a format.",
   },
   {
     level: 10,
-    tldr: "I redesign how organizations work.",
+    tldr: "I'm not using AI to work faster. I'm using it to need fewer people for the same output.",
     description:
-      "Placeholder: You're not just productive — you're redesigning what work looks like. Reporting lines, headcount decisions, and team structure all start with: 'What can't AI do here?'",
+      "You're not just productive — you're redesigning how teams work. You believe every department has an AI workflow owner hiding in plain sight — not a coder, but someone who can spec, prototype, and deploy AI-assisted processes. A COO at this level has restructured reporting lines around AI-augmented outputs. A marketing director runs a two-person team producing what used to require eight. You think in workforce-level ROI, not personal efficiency. Headcount decisions start with: \"What can't AI do here?\"",
     thePerson:
-      "Placeholder: Organizational thinker. Sees AI not as a tool for individuals but as a lever for restructuring how teams operate, what roles mean, and what headcount looks like.",
+      "Has both the organisational authority and the AI fluency to act on what they see. Deeply held philosophy: AI handles tasks, humans handle responsibility — no autonomous AI for client-facing decisions, no delegating accountability to a machine. Has had the internal vendor conversation: \"before we buy this, let me show you what we can build.\" Understands that the organisations winning right now are the ones compounding AI capability faster than competitors can hire.",
     theCompany:
-      "Placeholder: AI is embedded in organizational design, not just operations. Headcount decisions are AI-informed. Small teams produce outsized output by design.",
+      "Lean by design, not by constraint. Has restructured at least one department around AI-augmented outputs. Output-to-headcount ratio is measurably better than industry peers and leadership knows why. Headcount planning starts with capability mapping, not role-counting. The question isn't \"should we use AI?\" — it's \"what are we still doing manually that we shouldn't be?\"",
     theUnlock:
-      "Placeholder: Building the operating system — the infrastructure that makes AI-native operations possible at scale.",
+      "Systemising everything — building the interlocking workflows, automations, and agent pipelines that turn the org redesign into a self-sustaining operating system, not a series of individual decisions. That's the full AI-Native build.",
     checklist: [
-      "Has restructured team processes around AI-augmented outputs",
-      "Headcount decisions start with 'What can't AI do?'",
-      "Two-person teams produce what used to require eight",
-      "Thinks in workforce-level ROI, not personal efficiency",
-      "Has deployed AI workflows that entire teams run on",
+      "Has built and deployed AI workflows used by entire teams — not just personal productivity tools",
+      "Has restructured at least one department or reporting line around AI-augmented outputs",
+      "Headcount decisions start with \"what can't AI do here?\" not \"do we need another person?\"",
+      "Every department has a designated AI workflow owner — not a coder, a process designer",
+      "The team's collective AI capability compounds faster than any competitor can hire",
     ],
-    whosHere: "~0.05% of professionals. The org redesigners.",
+    whosHere: "~0.05% of professionals. Requires both organisational authority and deep AI fluency.",
   },
   {
     level: 11,
-    tldr: "AI isn't a tool — it's the org chart.",
+    tldr: "10 people. Unicorn output. AI isn't a tool — it's the org chart.",
     description:
-      "Placeholder: 10 people. Unicorn output. Every core workflow runs with minimal human initiation. Your competitive advantage isn't a product or a process — it's the operating system you built.",
+      "Your company has 10 people and the output of 100. Or you're a solo operator building toward $10M — same principles, different scale. Nearly every job function has partial team-level automation — support, content, reporting, legal review, financial modelling, sales prep, and onboarding all run with minimal human initiation. You haven't used AI to do your old job faster — you've redesigned what the job is. Your competitive advantage isn't a product or a process. It's the operating system you built. Peers can't explain your output-to-headcount ratio without seeing the workflows — and once they see them, they can't unsee them.",
     thePerson:
-      "Placeholder: Visionary operator. Has built an organization where AI isn't augmenting work — it IS the work infrastructure. Humans handle responsibility; AI handles tasks.",
+      "Founder-minded, systems-obsessed, radically pragmatic. Has let go of doing things the traditional way — not recklessly, but deliberately. Deeply held principle: AI handles tasks, humans handle responsibility. No autonomous AI for client-facing decisions. No delegating accountability to a machine. Whether running a 10-person team or operating solo, the philosophy is identical: every hire — or every hour — is evaluated against what AI cannot do, and the bar is genuinely high.",
     theCompany:
-      "Placeholder: AI-native from the ground up. The org chart is designed around AI capabilities. Peers can't explain the output-to-headcount ratio without seeing the workflows.",
+      "Doesn't look like a company from the outside. Headcount is suspiciously low for the output. Response times are fast. Content quality is high. Pricing is aggressive. Competitors assume there's a bigger team or a technical advantage they can't see. The advantage is the operating system — the interlocking workflows, prompts, automations, and agent pipelines that turn a small team (or a single person) into a force multiplier. It's not a product moat. It's a capability moat.",
     theUnlock:
-      "Placeholder: You're already here. The unlock is showing others what's possible — and watching them try to catch up.",
+      "There is no Level 12. The work at this level is depth, not progression — compounding the operating system, closing the gaps, and staying ahead of what AI can now do that it couldn't last quarter.",
     checklist: [
-      "10-person team with unicorn-level output",
-      "Every core workflow runs with minimal human initiation",
-      "Competitive advantage is the operating system, not the product",
-      "Peers can't explain output-to-headcount ratio",
-      "AI isn't a tool — it's the organizational infrastructure",
+      "Every core workflow has a defined AI layer — support, content, reporting, legal review, financial modelling, sales prep, onboarding",
+      "Team is under 10 people (or solo) and produces output that would require 50–100 in a traditional org",
+      "Headcount decisions are made by asking \"what can't AI do here?\" first",
+      "AI handles tasks; humans handle responsibility — no autonomous AI for client-facing decisions",
+      "Peers cannot explain the output-to-headcount ratio without seeing the workflows",
     ],
-    whosHere: "<0.01% of professionals. The AI-native operators.",
+    whosHere: "<0.01% of professionals. You don't reach this level. You build your way here from every level below it.",
   },
 ];

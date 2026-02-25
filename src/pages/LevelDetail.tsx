@@ -151,6 +151,48 @@ const LevelDetail = () => {
               <p className="text-sm lg:text-base leading-relaxed text-foreground/90">{detail.description}</p>
             </div>
 
+            {/* AI Fluency Meter — visual interlude */}
+            <div className="quiz-card animate-fade-in-up overflow-hidden relative" style={{ animationDelay: "0.08s" }}>
+              <div className="flex items-center justify-between mb-3">
+                <p className="font-display font-semibold text-xs text-muted-foreground uppercase tracking-wider">
+                  AI Fluency Spectrum
+                </p>
+                <span className="text-xs text-muted-foreground">{levelInfo.emoji} Level {levelNum} / 11</span>
+              </div>
+              {/* Track */}
+              <div className="relative h-5 rounded-full bg-muted/50 overflow-hidden">
+                {/* Animated fill */}
+                <div
+                  className="absolute inset-y-0 left-0 rounded-full transition-all duration-1000 ease-out"
+                  style={{
+                    width: `${Math.max((levelNum / 11) * 100, 4)}%`,
+                    background: `linear-gradient(90deg, hsl(var(--primary) / 0.6), hsl(var(--primary)), hsl(var(--accent)))`,
+                    boxShadow: `0 0 16px hsl(var(--primary) / 0.4)`,
+                  }}
+                />
+                {/* Glowing dot at tip */}
+                <div
+                  className="absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-primary border-2 border-background shadow-lg transition-all duration-1000 ease-out"
+                  style={{
+                    left: `calc(${Math.max((levelNum / 11) * 100, 4)}% - 8px)`,
+                    boxShadow: `0 0 12px hsl(var(--primary) / 0.6), 0 0 24px hsl(var(--primary) / 0.3)`,
+                  }}
+                />
+              </div>
+              {/* Scale labels */}
+              <div className="flex justify-between mt-2">
+                <span className="text-[10px] text-muted-foreground">Skeptic</span>
+                <span className="text-[10px] text-muted-foreground">Tinkerer</span>
+                <span className="text-[10px] text-muted-foreground">Builder</span>
+                <span className="text-[10px] text-muted-foreground">AI-Native</span>
+              </div>
+              {/* Decorative background dots */}
+              <div className="absolute inset-0 pointer-events-none opacity-[0.03]" style={{
+                backgroundImage: `radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)`,
+                backgroundSize: '16px 16px',
+              }} />
+            </div>
+
             {/* Person & Company — side by side on desktop */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="quiz-card animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
